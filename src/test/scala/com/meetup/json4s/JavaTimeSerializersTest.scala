@@ -1,15 +1,14 @@
-package com.meetup
+package com.meetup.json4s
 
 import java.time.format.DateTimeFormatter
 import java.time.{Instant, LocalDateTime, LocalTime, ZonedDateTime}
 
-import com.meetup.JavaTimeSerializers.{InstantSerializer, LocalDateTimeSerializer, LocalTimeSerializer, ZonedDateTimeSerializer}
+import com.meetup.json4s.JavaTimeSerializers.{InstantSerializer, LocalDateTimeSerializer, LocalTimeSerializer, ZonedDateTimeSerializer}
 import org.json4s.DefaultFormats
+import org.json4s.native.Serialization.{read, write}
 import org.scalatest._
 
-import org.json4s.native.Serialization.{read, write}
-
-class FooTest extends FunSpec {
+class JavaTimeSerializersTest extends FunSpec {
 
   def get =
     DateThings(
@@ -47,12 +46,6 @@ class FooTest extends FunSpec {
       localDateTimeDf.format(localDateTime),
       zonedDateTimeDf.format(zonedDateTime)
     )
-
-  describe("Default java.time support") {
-    JavaTimeSerializers.withFormats(
-      instantDf = DateTimeFormatter.ofPattern("hh:mm:ss")
-    )
-  }
 
   describe("Default java.time support") {
 
@@ -104,11 +97,14 @@ class FooTest extends FunSpec {
 
   }
 
+  describe("JavaTimeSerializers.asQuery") {
+    it("should result in a TemporalQuery whose queryFrom is equivalent to the wrapped function's apply") {
+      val now = ZonedDateTime.now
+      val f = ZonedDateTime.from _
+      val tq = JavaTimeSerializers.asQuery(f)
+      assert(tq.queryFrom(now) == f(now))
+    }
+  }
+
 }
 
-case class DateThings(
-  instant: Instant,
-  localTime: LocalTime,
-  localDateTime: LocalDateTime,
-  zonedDateTime: ZonedDateTime
-)
