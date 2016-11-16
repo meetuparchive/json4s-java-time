@@ -1,0 +1,1 @@
+addSbtPlugin("com.meetup" % "sbt-plugins" % "0.3.26")
