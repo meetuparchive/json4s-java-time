@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/meetup/json4s-java-time/badge.svg?branch=master)](https://coveralls.io/github/meetup/json4s-java-time?branch=master) [ ![Download](https://api.bintray.com/packages/meetup/maven/json4s-java-time/images/download.svg) ](https://bintray.com/meetup/maven/json4s-java-time/_latestVersion)  [![Build Status](https://travis-ci.org/meetup/json4s-java-time.svg?branch=master)](https://travis-ci.org/meetup/json4s-java-time)
+
 # json4s-java-time
 
 This library adds minimal `java.time` support for [json4s] [1] by way of its support for [custom serialization] [2].
