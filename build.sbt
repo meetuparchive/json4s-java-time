@@ -1,10 +1,9 @@
 enablePlugins(CommonSettingsPlugin)
+enablePlugins(CoverallsWrapper)
 
 name := "json4s-java-time"
 
 organization := "com.meetup"
-
-version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.8"
 
@@ -14,3 +13,8 @@ libraryDependencies ++= Seq(
 )
 
 initialCommands := "import com.meetup._; import java.time._; import java.time.format._"
+
+licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
+
+bintrayOrganization in ThisBuild := Some("meetup")
+
