@@ -7,6 +7,8 @@ organization := "com.meetup"
 
 scalaVersion := "2.11.8"
 
+autoScalaLibrary := false
+
 libraryDependencies ++= Seq(
   "org.json4s" %% "json4s-core" % "3.4.0" % "provided",
   "org.json4s" %% "json4s-native" % "3.4.0" % "test"
