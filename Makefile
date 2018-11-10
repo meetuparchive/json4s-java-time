@@ -25,7 +25,6 @@ __package-sbt:
 	sbt clean \
 		test \
 		publishLocal \
-		component:test
 
 __publish-sbt: __package-sbt
 	sbt publish cleanLocal
