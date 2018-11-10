@@ -22,12 +22,12 @@ list:
 no_op__:
 
 __package-sbt:
-	sbt clean \
-		test \
-		publishLocal \
+	sbt +clean \
+		+test \
+		+publishLocal \
 
 __publish-sbt: __package-sbt
-	sbt publish cleanLocal
+	sbt +publish +cleanLocal
 
 __set-publish:
 	$(eval TARGET=__publish-sbt)
